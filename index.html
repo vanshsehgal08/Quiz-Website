@@ -1,57 +1,58 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Your Quiz</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="icon" href="assets/icon.png">
-    </head>
-    <body>
-        <div class="container">
-            <h1>Your Quiz</h1>
-            <p class="description">
-                <b>Welcome to Your Quiz! 🎉</b>
-                <br>Dive into the world of trivia and create your very own quiz masterpiece!
-                <br> 🧠 Challenge your friends to see who reigns supreme in knowledge.
-                <br>🏆 Let the fun and excitement begin as you embark on a journey of discovery and friendly competition!
-            </p>
-            <button id="createQuizButton" class="button">Create Quiz</button>
-            <div id="createQuizForm" style="display: none;">
-                <h2>Create Quiz</h2>
-                <div id="questionInputs">
-                    <div class="questionInput">
-                        <label for="question1">Question 1:</label>
-                        <input type="text" id="question1" required>
-                        <label for="option1-1">Option 1:</label>
-                        <input type="text" id="option1-1" required>
-                        <label for="option1-2">Option 2:</label>
-                        <input type="text" id="option1-2" required>
-                        <label for="option1-3">Option 3:</label>
-                        <input type="text" id="option1-3" required>
-                        <label for="option1-4">Option 4:</label>
-                        <input type="text" id="option1-4" required>
-                        <label for="correctAnswer1">Correct Answer:</label>
-                        <select id="correctAnswer1" required>
-                            <option value="option1-1">Option 1</option>
-                            <option value="option1-2">Option 2</option>
-                            <option value="option1-3">Option 3</option>
-                            <option value="option1-4">Option 4</option>
-                        </select>
-                    </div>
+<head>
+    <title>Your Quiz</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/icon.png">
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Your Quiz</h1>
+        <p class="description">
+            <b>Welcome to Your Quiz! 🎉</b>
+            <br>Dive into the world of trivia and create your very own quiz masterpiece!
+            <br> 🧠 Challenge your friends to see who reigns supreme in knowledge.
+            <br>🏆 Let the fun and excitement begin as you embark on a journey of discovery and friendly competition!
+        </p>
+        <button id="createQuizButton" class="button">Create Quiz</button>
+        <div id="createQuizForm" style="display: none;">
+            <h2>Create Quiz</h2>
+            
+            <div id="questionInputs">
+                <div class="questionInput">
+                    <label for="question1">Question 1:</label>
+                    <input type="text" id="question1" required>
+                    <label for="option1-1">Option 1:</label>
+                    <input type="text" id="option1-1" required>
+                    <label for="option1-2">Option 2:</label>
+                    <input type="text" id="option1-2" required>
+                    <label for="option1-3">Option 3:</label>
+                    <input type="text" id="option1-3" required>
+                    <label for="option1-4">Option 4:</label>
+                    <input type="text" id="option1-4" required>
+                    <label for="correctAnswer1">Correct Answer:</label>
+                    <select id="correctAnswer1" name="correctAnswer1" required>
+                        <option value="option1-1">Option 1</option>
+                        <option value="option1-2">Option 2</option>
+                        <option value="option1-3">Option 3</option>
+                        <option value="option1-4">Option 4</option>
+                    </select>
                 </div>
-                <button id="addQuestionButton">Add Question</button>
-                <button id="submitQuizButton">Generate Quiz Link</button>
             </div>
-            <div id="quiz" style="display: none;"></div>
-            <div id="result" class="result"></div>
-            <button id="submit" class="button hide">Submit</button>
-            <button id="retry" class="button hide">Retry</button>
-            <button id="showAnswer" class="button hide">Show Answer</button>
-            <div id="quizLink" class="quiz-link"></div>
-            <button id="submitUser2" class="button hide">Submit Quiz</button>
-
-            <div id="resultUser2" class="result hide"></div>
-
+            <button id="addQuestionButton">Add Question</button>
+            <button id="submitQuizButton" onclick="validateInputs()" >Generate Quiz Link</button>
         </div>
-        <script src="script.js"></script>
-    </body>
+        <div id="quiz" style="display: none;"></div>
+        <div id="result" class="result"></div>
+        <button id="submit" class="button hide">Submit</button>
+        <button id="retry" class="button hide">Retry</button>
+        <button id="showAnswer" class="button hide">Show Answer</button>
+        <div id="quizLink" class="quiz-link"></div>
+        <button id="submitUser2" class="button hide">Submit Quiz</button>
+
+        <div id="resultUser2" class="result hide"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
 </html>
