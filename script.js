@@ -1,17 +1,3 @@
-function validateInputs() {
-    const inputs = document.querySelectorAll(
-        '#createQuizForm input[type="text"]'
-    );
-    const allFilled = Array.from(inputs).every(
-        (input) => input.value.trim() !== ""
-    );
-
-    if (!allFilled) {
-        alert("Please fill in all textboxes before generating the quiz link.");
-        return;
-    }
-}
-
 document.addEventListener("DOMContentLoaded", function () {
     const createQuizButton = document.getElementById("createQuizButton");
     const addQuestionButton = document.getElementById("addQuestionButton");
@@ -65,20 +51,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     submitQuizButton.addEventListener("click", function () {
-        const inputs = document.querySelectorAll(
-            '#createQuizForm input[type="text"]'
-        );
-        const allFilled = Array.from(inputs).every(
-            (input) => input.value.trim() !== ""
-        );
-
-        if (!allFilled) {
-            alert(
-                "Please fill in all textboxes before generating the quiz link."
-            );
-            return;
-        }
-
         quizData = getQuizData();
         const quizLink = generateQuizLink(quizData);
         quizLinkContainer.innerHTML = `<p>Quiz Link: <a href="${quizLink}" target="_blank">${quizLink}</a></p>`;
@@ -109,22 +81,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function generateQuizLink(quizData) {
-        const quizDataWithoutAnswers = quizData.map((question) => {
-            const questionWithoutAnswer = { ...question };
-            delete questionWithoutAnswer.answer;
-            return questionWithoutAnswer;
-        });
-
-        const encodedQuizData = encodeURIComponent(
-            JSON.stringify(quizDataWithoutAnswers)
-        );
-
+        const encodedQuizData = encodeURIComponent(JSON.stringify(quizData));
         const quizID = Date.now();
-
         const quizLink = `${
             window.location.href.split("?")[0]
         }?quizid=${quizID}&data=${encodedQuizData}`;
-
         return quizLink;
     }
 
